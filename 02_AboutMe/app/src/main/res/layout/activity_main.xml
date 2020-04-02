@@ -1,0 +1,90 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+		<import type="androidx.databinding.ObservableField" />
+		<import type="android.view.View" />
+
+		<variable
+			name="nickname"
+			type="ObservableField&lt;String&gt;" />
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/name_text"
+			style="@style/NameStyle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginRight="16dp"
+			android:gravity="center_horizontal"
+			android:text="@string/name" />
+
+		<EditText
+			android:id="@+id/nickname_edit"
+			style="@style/NameStyle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:gravity="center_horizontal"
+			android:hint="@string/what_is_your_nickname"
+			android:inputType="textPersonName|textCapWords"
+			android:visibility="@{nickname == null ? View.VISIBLE : View.GONE}" />
+
+		<Button
+			android:id="@+id/done_button"
+			style="@style/Widget.AppCompat.Button.Colored"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:text="@string/done"
+			android:visibility="@{nickname == null ? View.VISIBLE : View.GONE}" />
+
+		<TextView
+			android:id="@+id/nickname_text"
+			style="@style/NameStyle"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginRight="16dp"
+			android:gravity="center_horizontal"
+			android:text="@{nickname}"
+			android:visibility="@{nickname == null ? View.GONE : View.VISIBLE}" />
+
+		<ImageView
+			android:id="@+id/star_image"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="16dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginRight="16dp"
+			android:contentDescription="@string/star"
+			app:srcCompat="@drawable/ic_star" />
+
+		<ScrollView
+			android:id="@+id/bio_scroll"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="16dp">
+
+			<TextView
+				android:id="@+id/bio_text"
+				style="@style/NameStyle"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="16dp"
+				android:layout_marginRight="16dp"
+				android:lineSpacingMultiplier="1.2"
+				android:text="@string/bio" />
+		</ScrollView>
+	</LinearLayout>
+</layout>
